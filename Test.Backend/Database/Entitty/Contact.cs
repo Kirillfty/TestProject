@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace test.Database.Entitty;
+namespace Test.Backend.Database.Entitty;
 
 [Table("Contacts")]
 public class Contact
@@ -11,7 +11,7 @@ public class Contact
     [MaxLength(15)]
     public string Name { get; set; }
     [MaxLength(11)]
-    public string Phonenumber { get; set; }
+    public string PhoneNumber { get; set; }
     [MaxLength(15)]
     public string JobTitle { get; set; }
     public DateTime BirthDate { get; set; }

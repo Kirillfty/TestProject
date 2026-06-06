@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using test.Database;
+using Test.Backend.Database;
 
 #nullable disable
 
-namespace test.Migrations
+namespace Test.Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -17,7 +17,7 @@ namespace test.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
 
-            modelBuilder.Entity("test.Database.Entitty.Contact", b =>
+            modelBuilder.Entity("Test.Backend.Database.Entitty.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace test.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Phonenumber")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("TEXT");

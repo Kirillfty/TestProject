@@ -1,13 +1,12 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using test.Common.Exceptions;
-using test.Database;
-using test.Database.Entitty;
+using Test.Backend.Common.Exceptions;
+using Test.Backend.Database;
+using Test.Backend.Database.Entitty;
 
-namespace test.Features.Contacts.Queries.GetById;
+namespace Test.Backend.Features.Contacts.Queries.GetById;
 
 public record GetContactByIdQuery(int Id) : IRequest<Contact>;
-
 
 public class GetContactByIdQueryHandler : IRequestHandler<GetContactByIdQuery, Contact>
 {
@@ -22,15 +21,13 @@ public class GetContactByIdQueryHandler : IRequestHandler<GetContactByIdQuery, C
     {
         var contact = await _context.Contacts
             .AsNoTracking()
-            .FirstOrDefaultAsync(u=>u.Id == request.Id,cancellationToken);
+            .FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken);
 
         if (contact is null)
         {
-            throw new NotFoundException<int>(nameof(Contact),request.Id);
+            throw new NotFoundException(nameof(Contact), request.Id.ToString());
         }
-        
+
         return contact;
     }
 }
-
-

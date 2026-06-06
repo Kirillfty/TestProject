@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using test.Database.Entitty;
+using Test.Backend.Database.Entitty;
 
-namespace test.Database
+namespace Test.Backend.Database
 {
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {

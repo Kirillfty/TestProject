@@ -1,15 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using test.Common.Exceptions;
-using test.Database.Entitty;
+
+namespace Test.Backend.Common.Exceptions;
 
 public sealed class GlobalExceptionHandler : IExceptionHandler
 {
     private readonly ILogger<GlobalExceptionHandler> _logger;
 
-    public GlobalExceptionHandler(
-        ILogger<GlobalExceptionHandler> logger)
+    public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
     {
         _logger = logger;
     }
@@ -26,7 +25,7 @@ public sealed class GlobalExceptionHandler : IExceptionHandler
 
         switch (exception)
         {
-            case NotFoundException<Contact> ex:
+            case NotFoundException ex:
                 problemDetails.Status = StatusCodes.Status404NotFound;
                 problemDetails.Title = "Resource not found";
                 problemDetails.Detail = ex.Message;

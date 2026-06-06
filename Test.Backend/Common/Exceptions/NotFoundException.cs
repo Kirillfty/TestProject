@@ -1,3 +1,4 @@
-namespace test.Common.Exceptions;
+namespace Test.Backend.Common.Exceptions;
 
-public class NotFoundException<T>(string entityName, T entityId) : Exception($"{entityName} with {entityId} not found");
+public class NotFoundException(string entityName, string entityId)
+    : Exception($"{entityName} with {entityId} not found");

@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace test.Migrations
+namespace Test.Backend.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace test.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 15, nullable: false),
-                    Phonenumber = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
                     JobTitle = table.Column<string>(type: "TEXT", maxLength: 15, nullable: false),
                     BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },

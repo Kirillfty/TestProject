@@ -1,10 +1,10 @@
 using MediatR;
-using test.Database;
-using test.Database.Entitty;
+using Test.Backend.Database;
+using Test.Backend.Database.Entitty;
 
-namespace test.Features.Contacts.Commands;
+namespace Test.Backend.Features.Contacts.Commands.AddContact;
 
-public record AddContactCommand(int Id, string Name, string PhoneNumber, string JobTitle, DateTime BitrhDate)
+public record AddContactCommand(string Name, string PhoneNumber, string JobTitle, DateTime BirthDate)
     : IRequest<Contact>;
 
 public class AddContactCommandHandler : IRequestHandler<AddContactCommand, Contact>
@@ -18,11 +18,10 @@ public class AddContactCommandHandler : IRequestHandler<AddContactCommand, Conta
     {
         var entity = new Contact
         {
-            Id = request.Id,
             Name =  request.Name,
             JobTitle = request.JobTitle,
-            Phonenumber =  request.PhoneNumber,
-            BirthDate = request.BitrhDate
+            PhoneNumber =  request.PhoneNumber,
+            BirthDate = request.BirthDate
         };
         
         await _db.AddAsync(entity);
